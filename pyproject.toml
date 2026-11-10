@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-retrieval-server"
+version = "0.1.0"
+description = "An MCP server exposing document retrieval tools over stdio, implemented against spec 2025-06-18."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["mcp", "model-context-protocol", "retrieval", "json-rpc", "tools"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+mcp-retrieval-server = "mcp_retrieval.server:main"
+
+[tool.setuptools.packages.find]
+include = ["mcp_retrieval*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
